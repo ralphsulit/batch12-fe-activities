@@ -207,7 +207,7 @@ Desktop
 
   .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 6px hsl(249, 10%, 26%);
     background-color: #555;
   }
 
@@ -222,7 +222,7 @@ Desktop
     padding: 15px 10px;
     width: 425px;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid hsl(249, 10%, 26%);
   }
   
   textarea{
