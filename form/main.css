@@ -116,7 +116,7 @@ input[type=submit] {
   margin-top: 20px;
   padding: 15px 20px;
   text-transform: uppercase;
-  width: 300px;
+  width: 260px;
 }
 
 input[type=text],
@@ -213,7 +213,7 @@ Desktop
 
     /* inputs */
   input[type=submit] {
-    width: 500px;
+    width: 425px;
   }
 
   input[type=text],
