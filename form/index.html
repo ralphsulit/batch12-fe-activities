@@ -29,7 +29,7 @@
         then $20/mo.thereafter
       </h3>
       <div class="box">
-        <form id="survey-form" action="">
+        <form id="survey-form"  class="scrollbar" action="">
           <!-- Name -->
           <label id="name-label" for="name">Name:</label><br>
           <input id="name" type="text" placeholder="Name" required><br>
@@ -38,7 +38,7 @@
           <input type="email" id="email" placeholder="Email" required><br>
           <!-- Number -->
           <label for="number" id="number-label">Number:</label><br>
-          <input type="number" id="number" placeholder="Contact" min="1" maxlength="12"  required><br>
+          <input type="number" id="number" placeholder="Contact" minlength="7" maxlength="12"  required><br>
           <!-- Gender -->
           <label for="">Gender:</label><br>
           <input type="radio" id="male" name="gender" value="male">
@@ -69,10 +69,10 @@
           <!-- Textarea -->
           <label for="about">Tell us about yourself:</label><br>
           <textarea name="about" id="about" cols="30" rows="10"></textarea>
-          <!-- Submit Button  -->
-          <input id="submit" type="submit" value="Claim your free trial">
         </form>
       </div>
+      <!-- Submit Button  -->
+      <input id="submit" type="submit" value="Claim your free trial">
     </div>
   </main>
   <footer>&copy; Copyright 2021</footer>
