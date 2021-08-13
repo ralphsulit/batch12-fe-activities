@@ -470,6 +470,10 @@ Tablet
     padding: 0;
   }
 
+  .white-box p {
+    padding: 0 20px;
+  }
+
   /* *****************
   Main: 
   Upper Row
