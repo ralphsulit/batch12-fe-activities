@@ -320,14 +320,17 @@ Gallery
   background-image: url(images/mobile/image-gallery-milkbottles.jpg);
 }
 
+/* Image 2 */
 .image-2 {
   background-image: url(images/mobile/image-gallery-orange.jpg);
 }
 
+/* Image 3 */
 .image-3 {
   background-image: url(images/mobile/image-gallery-cone.jpg);
 }
 
+/* Image 4 */
 .image-4 {
   background-image: url(images/mobile/image-gallery-sugar-cubes.jpg);
 }
@@ -517,6 +520,19 @@ Tablet
   }
 
   /* *****************
+  Upper and Lower Box
+  ***************** */
+  .upper-box {
+    background-image: url(images/desktop/image-graphic-design.jpg);
+    color:hsl(167, 40%, 24%);
+  }
+  
+  .lower-box {
+    background-image: url(images/desktop/image-photography.jpg);
+    color:hsl(198, 62%, 26%);
+  }
+
+  /* *****************
   Main: 
   Testimonials
   ***************** */
@@ -557,4 +573,96 @@ Tablet
     width: 100%;
   }
 
+}
+
+
+/* *****************
+Media Query: 
+Tablet
+***************** */
+@media(min-width: 1024px) {
+  /* *****************
+  Main: 
+  White Box
+  ***************** */
+  .white-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    text-align: left;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .white-box h2 {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-top: 200px;
+  }
+
+  .white-box p {
+    width: 500px;
+    text-align: left;
+  }
+
+  /* *****************
+  Upper & Lower Box
+  ***************** */
+  .upper-box p,
+  .lower-box p {
+    width: 400px;
+  }
+
+  /* *****************
+  Gallery
+  ***************** */
+  /* Image 1 */
+  .image-1 {
+    background-image: url(images/desktop/image-gallery-milkbottles.jpg);
+  }
+
+  /* Image 2 */
+  .image-2 {
+    background-image: url(images/desktop/image-gallery-orange.jpg);
+  }
+
+  /* Image 3 */
+  .image-3 {
+    background-image: url(images/desktop/image-gallery-cone.jpg);
+  }
+
+  /* Image 4 */
+  .image-4 {
+    background-image: url(images/desktop/image-gallery-sugarcubes.jpg);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+    grid-template-rows: 1fr;
+  }
+  
+}
+
+/* *****************
+Media Query: 
+Lapotp (1440px)
+***************** */
+@media(min-width: 1440px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px,4fr));
+    grid-template-rows: 1fr;
+  }
+
+  /* *****************
+  Main: 
+  Testimonials
+  ***************** */
+  .testi-box p {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
 }
