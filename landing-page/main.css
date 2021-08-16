@@ -42,12 +42,12 @@ Header:
 Navigation
 ****************** */
 .nav-bar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: space-between;
-  padding: 40px 100px;
+  padding: 20px 100px;
   width: 100%;
   z-index: 10;
 }
@@ -58,12 +58,23 @@ Navigation
 }
 
 .nav-link {
-  padding: 0 25px;
+  padding: 0 15px;
+  border: none;
 }
 
 .nav-link a:hover {
   color: #555;
 }
+
+/* *****************
+Navbar after scroll
+****************** */
+.scroll-active {
+  background-color: rgb(197, 164, 140);
+  box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+  z-index: 100000;
+}
+
 
 /* ******************
 Header Content
@@ -203,12 +214,17 @@ About Section
 }
 
 .about h1 {
-  color: #5d4b44;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 4px;
   margin-bottom: 20px;
 }
 
 .about p {
-  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
   max-width: 490px;
   margin: auto;
 }
@@ -388,16 +404,28 @@ Mobile
   Navigation
   ****************** */
   .nav-bar {
-    padding: 20px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nav-menu {
+    max-width: 300px;
+    margin: 10px auto;
+
   }
 
   .nav-link {
-    padding: 0 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin: 10px auto;
   }
 
   .logo {
     font-size: 2rem;
+  }
+
+  .header-content h1 {
+    margin-top: 50px;
   }
 
   /* ******************
@@ -470,6 +498,8 @@ Mobile
     }
 
     .services-img img {
+      width: 100%;
+      height: auto;
       max-width: 300px;
       box-shadow: -10px -20px #5d4b44;
     }
@@ -524,4 +554,85 @@ Mobile
     input[type=submit] {
       margin-top: 20px;
     }
+}
+
+/* ******************
+Media Query: 
+Mobile 
+****************** */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* ******************
+  Services Section
+  ****************** */
+  .services {
+    padding: 50px;
+  }
+  
+  .services-content {
+    height: 80vh;
+  }
+
+  .services-content h2 {
+    font-size: 2rem;
+  }
+
+  .services-content h3 {
+    font-size: 1rem;
+  }
+
+  .services-content p {
+    font-size: 0.9rem;
+    width: 350px;
+  }
+
+  .services-content a {
+    width: 250px;
+    font-size: 0.9rem;
+  }
+
+  /* ******************
+  Contact Section
+  ****************** */
+  .contact {
+    padding: 50px;
+  }
+
+  .contact-content h2 {
+    font-size: 2rem;
+  }
+
+  .contact-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  .contact-content p {
+    margin: 15px 0;
+    font-size: 0.9rem;
+    line-height: 30px;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+  }
+
+  .contact-image img {
+    max-width: 800px;
+  }
+
+  input[type=email] {
+    padding: 10px 30px;
+    border: 1px solid #111;
+    border-width: thin;
+    outline: none;
+  }
+
+  input[type=submit] {
+    margin-top: 20px;
+  }
 }
