@@ -31,7 +31,7 @@ goalInput.addEventListener("keypress", (e) => {
     console.log('hello');
     goalForm.style.display = 'none';
     goal.style.display = 'block';
-    goal.innerHTML = `Main Goal for today : <br><br> ${goalInput.value}`;
+    goal.innerHTML = `Main focus for today : <br><br> ${goalInput.value}`;
     goalInput.value = '';
   }
 }); 
