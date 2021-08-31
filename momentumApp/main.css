@@ -185,6 +185,13 @@ quotes
   bottom: 0;
   position: absolute;
   margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.add-quote {
+  opacity: 0.7;
+  outline: none;
+  border: none;
 }
 
 /* **************
@@ -336,6 +343,71 @@ Modal
 .modal-container.show {
   opacity: 1;
   pointer-events: auto;
+}
+
+.wrapper .quote-inputField {
+  display: flex;
+  height: 45px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Input Field  */
+.quote-inputField input {
+  width: 85%;
+  border: 1px solid #ccc;
+  font-size: 17px;
+  border-radius: 3px;
+  padding-left: 15px;
+  color: #111;
+}
+
+.quote-inputField button {
+  width: 60px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: rgb(82, 99, 127);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: 5px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.quote-inputField button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* **************
+New Quote Modal
+************** */
+.quote-modal-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+}
+
+.quote-modal-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.quote-close {
+  float: right;
+  cursor: pointer;
 }
 
 /* Media Query: Tablet */

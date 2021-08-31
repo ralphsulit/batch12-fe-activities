@@ -12,9 +12,63 @@ let quotes = [
   '“Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do.” – Johann Wolfgang Von Goethe'
 ];
 
+let quoteDisplay = document.getElementById('quoteDisplay');
+
 function newQuote() {
   let randomNumber = Math.floor(Math.random() * (quotes.length));
-  document.getElementById('quoteDisplay').innerHTML = quotes[randomNumber];
+  quoteDisplay.innerHTML = quotes[randomNumber];
 }
+
+
+
+////////////////// 
+//Modal 
+/////////////////
+// Variables
+const quote_modal_container = document.querySelector('.quote-modal-container');
+const quote_closeBtn = document.querySelector('.quote-close');
+const quote_inputBox = document.querySelector(".quote-inputField input");
+const quote_addBtn = document.querySelector(".quote-inputField button");
+
+quote_inputBox.onkeyup = () => {
+  let userData = quote_inputBox.value; //getting user entered value
+  if (userData.trim() != 0) {
+    quote_addBtn.classList.add('active'); //active add btn
+  } else {
+    quote_addBtn.classList.remove('active'); //unactive add btn
+  }
+}
+
+
+//when user click the add button
+quote_addBtn.onclick = () => {
+  let userData = quote_inputBox.value;    
+  quotes.push(userData);
+  console.log(quotes);
+  quote_inputBox.value = ''; //once added input field will be blank
+  quote_addBtn.classList.remove('active'); //unactive add btn
+}
+
+quote_inputBox.addEventListener("keypress", (e) => {
+  let userData = quote_inputBox.value;    
+  if (userData.length > 0 && e.keyCode === 13) {
+    let userData = quote_inputBox.value;    
+  quotes.push(userData);
+  console.log(quotes);
+  quote_inputBox.value = ''; //once added input field will be blank
+  quote_addBtn.classList.remove('active'); //unactive add btn
+  }
+}); 
+
+//open the modal when clicked
+quoteDisplay.addEventListener('click', () => {
+  quote_modal_container.classList.add('show');
+});
+
+//close the modal when clicked
+quote_closeBtn.addEventListener('click', () => {
+  quote_modal_container.classList.remove('show');
+});
+
 
 newQuote();
