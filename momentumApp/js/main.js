@@ -39,7 +39,6 @@ goalInput.addEventListener("keypress", (e) => {
 ////////////////// 
 //Todo List
 /////////////////
-
 // Variables
 const inputBox = document.querySelector(".inputField input");
 const addBtn = document.querySelector(".inputField button");

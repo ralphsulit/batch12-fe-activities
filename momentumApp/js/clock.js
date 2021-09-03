@@ -22,3 +22,5 @@ function realtimeClock() {
     hours + " : " + mins + " : " + secs + " " + amPM;
   let t = setTimeout(realTimeClock, 500);
 }
+
+console.log('hello');

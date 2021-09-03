@@ -12,6 +12,7 @@ let quotes = [
   '“Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do.” – Johann Wolfgang Von Goethe'
 ];
 
+//quote variable
 let quoteDisplay = document.getElementById('quoteDisplay');
 
 function newQuote() {
@@ -49,6 +50,7 @@ quote_addBtn.onclick = () => {
   quote_addBtn.classList.remove('active'); //unactive add btn
 }
 
+//when user pres the enter key
 quote_inputBox.addEventListener("keypress", (e) => {
   let userData = quote_inputBox.value;    
   if (userData.length > 0 && e.keyCode === 13) {
@@ -72,3 +74,34 @@ quote_closeBtn.addEventListener('click', () => {
 
 
 newQuote();
+
+
+
+
+
+
+
+
+
+
+const students = [
+  { name: 'Manny', city: 'Manila' },
+  { name: 'jose', city: 'intramuros' },
+  { name: 'ana', city: 'mandaluyong' }
+];
+
+for (const student of students) {
+  const { name, city } = student;
+  console.log(student);
+  console.log(`${name} lives in ${city}`);
+}
+
+function buy(food = 'chicharon') {
+  if (food === 'chicharon') {
+    console.log(`I'm going to buy ${food} from the sari-sari store`);
+  } else {
+    console.log(`I'm going to buy something from the sari-sari store`);
+  }
+}
+  
+buy();
