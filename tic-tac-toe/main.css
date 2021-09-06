@@ -6,7 +6,7 @@
 }
 
 body {
-  background: rgb(250, 80, 80);
+  background: #f98125;
   display: flex;
   font-family: sans-serif;
   justify-content: center;
@@ -26,12 +26,13 @@ Select Box
   background: #fff;
   padding: 20px 25px 25px;
   border-radius: 5px;
+  display: none;
 }
 
 .select-section header {
   font-size: 23px;
   font-weight: 600;
-  padding-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .select-section .title {
@@ -52,7 +53,7 @@ Select Box
   padding: 8px 0;
   border: none;
   outline: none;
-  background: rgb(252, 108, 84);
+  background: #fb9b50;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -77,4 +78,28 @@ Game Title
 ***************** */
 .game-title {
   text-align: center;
+}
+
+/* *****************
+Main Container: 
+Upper,Middle,Lower Row
+***************** */
+.container section {
+  display: flex;
+}
+
+.container section span {
+  display: block;
+  margin: 3px;
+  height: 80px;
+  width: 80px;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

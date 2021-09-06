@@ -1,5 +1,7 @@
+//Variables
 let cells = document.querySelectorAll('.cell');
 let playerX = true;
+
 
 let gameState = [
   ["", "", ""],
@@ -7,31 +9,16 @@ let gameState = [
   ["", "", ""]
 ];
 
+// loop to all the cells and add click event
 function ticTacToe() {
-  //loop all cells
-  cells.forEach(cell => () {
-    cell.addEventListener('click', cellClick)
-  })
+  cells.forEach(cell => {
+    cell.addEventListener('click', cellClick);
+  });
 }
 
-function cellClick(e) {
-  console.log(e.target);
-  this.innerText = 'X';
-  playerX = !playerX;
-  console.log(playerX);
-  if (playerX === true) {
-    this.innerText = 'X'
-  } else {
-    this.innerText = 'O';
-  } playerX = !playerX;
-  storeMove();
-};
 
-//store every move in the array
-function storeMOve() {
-  cells.forEach(cell => () {
-    this
-  })
+function cellClick(e) {
+  this.innerText = 'X';
 }
 
 ticTacToe();
