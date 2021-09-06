@@ -1,18 +1,24 @@
 * {
-  box-sizing: 0;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
 body {
-  display: flex;
+  background: url('img/white.jfif');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;  
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
+  font-family: 'Amatic SC',sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
 /* **************
@@ -29,17 +35,22 @@ Game Container
   width: 150px;
   background: #add8e6;
   border-radius: 10px;
-  cursor: pointer;
 }
 
 /* **************
 Cell
 ************** */
 .game-container .cell {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.game-container .cell.hide {
+  pointer-events: none;
+}
+
 
 .cross,
 .circle {
@@ -49,3 +60,5 @@ Cell
 .cell:hover {
   background: #333;
 }
+
+
