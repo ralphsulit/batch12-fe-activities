@@ -45,12 +45,12 @@ Cell
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
 }
 
 .game-container .cell.hide {
   pointer-events: none;
 }
-
 
 .cross,
 .circle {

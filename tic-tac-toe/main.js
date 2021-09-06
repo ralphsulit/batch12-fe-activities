@@ -27,9 +27,9 @@ function cellClick() {
 
 //save every move in an array
 
+let gameState = []; //game storage
 
 function saveMove() {
-  let gameState = []; //game storage
   let row1 = [];
   let row2 = [];
   let row3 = [];
