@@ -16,9 +16,14 @@ function ticTacToe() {
   });
 }
 
-
+//when clicked add innerHTML 
 function cellClick(e) {
-  this.innerText = 'X';
+  if (playerX === true) {
+    this.innerText = 'X'; //add X when playerX = true
+  } else {
+    this.innerText = 'O'; //add O when playerX = false
+  }
+  playerX = !playerX; //when player X is false
 }
 
 ticTacToe();
