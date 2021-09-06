@@ -7,7 +7,7 @@
 body {
   background: url('img/white.jfif');
   background-position: center center;
-  background-size: cover;
+  background-size: 100% 140%;
   background-repeat: no-repeat;
   display: flex;  
   flex-direction: column;
@@ -59,6 +59,36 @@ Cell
 
 .cell:hover {
   background: #333;
+}
+
+/* **************
+Buttons 
+************** */
+.buttons {
+  margin-top: 20px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.buttons span {
+  margin: 0 30px;
+}
+
+.prev,
+.next,
+.reload {
+  width: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  color: #ffbf00;
+}
+
+.reload:hover {
+  color: #fe5c5c;
 }
 
 
