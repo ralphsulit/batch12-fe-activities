@@ -25,16 +25,21 @@ body {
 Select Box
 ************** */
 .select-box {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
   padding: 20px 25px 25px;
   border-radius: 5px;
-  max-width: 300px;
-  width: 100%;
+  max-width: 100%;
+  max-height: 250px;
+  width: 300px;
+  height: 100vh;
   z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
 } 
 
 .select-box header {
@@ -81,6 +86,47 @@ Select Box
   transform: scale(0.96);
 }
 
+/* **************
+Play Board 
+************** */
+.play-board {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  width: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.play-board .details {
+  background: #fff;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.play-board .details span {
+  color: #add8e6;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  padding: 7px 0;
+  font-size: 19px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.details span.active {
+  color: #fff;
+  background: #fe5c5c;
+}
+
+.play-board .details .players {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+
+
 
 /* **************
 Game Container 
@@ -96,6 +142,11 @@ Game Container
   width: 150px;
   background: #add8e6;
   border-radius: 10px;
+  font-size: 5rem;
+  font-family: 'Glory', sans-serif;
+  text-align: center;
+  line-height: 80px;
+  color: #fff;
 }
 
 /* **************
@@ -113,37 +164,50 @@ Cell
   pointer-events: none;
 }
 
-.cross,
-.circle {
-  color: #fff;
-}
-
 .cell:hover {
   background: #333;
 }
 
-.cross {
-  width: 32px;
-  height: 32px;
-  position: relative;
+/* **************
+Play Board 
+************** */
+.play-board {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  width: 150px;
+  transform: translate(-50%, -50%);
 }
 
-.cross:before,
-.cross:after {
-  left: 15px;
-  content: ' ';
-  height: 33px;
-  width: 2px;
-  background-color: #fff;
+.play-board .details {
+  background: #fff;
+  padding: 7px;
+  border-radius: 5px;
 }
 
-.cross:before {
-  transform: rotate(45deg);
+.play-board .details span {
+  color: #add8e6;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  padding: 7px 0;
+  font-size: 19px;
+  font-weight: 500;
+  font-family: 'Glory', sans-serif;
+  cursor: pointer;
 }
 
-.cross:after {
-  transform: rotate(-45deg);
+.details span.active {
+  color: #fff;
+  background: #add8e6;
 }
+
+.play-board .details .players {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 /* **************
 Buttons 
 ************** */

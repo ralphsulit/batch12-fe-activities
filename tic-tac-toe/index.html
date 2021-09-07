@@ -11,7 +11,7 @@
   <!-- Google Fonts  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Glory:wght@500&display=swap" rel="stylesheet">
   <title>tictactow</title>
 </head>
 <body>
@@ -32,22 +32,31 @@
   <div class="game-container">
     <!-- Row 1  -->
     <section>
-      <span data-cell-index="0" class="cell cross"></span>
-      <span data-cell-index="1" class="cell"></span>
-      <span data-cell-index="2" class="cell"></span>
+      <span data-cell-index="0" class="cell1 cell"></span>
+      <span data-cell-index="1" class="cell2 cell"></span>
+      <span data-cell-index="2" class="cell3 cell"></span>
     </section>
     <!-- Row 2  -->
     <section>
-      <span data-cell-index="3" class="cell"></span>
-      <span data-cell-index="4" class="cell"></span>
-      <span data-cell-index="5" class="cell"></span>
+      <span data-cell-index="3" class="cell4 cell"></span>
+      <span data-cell-index="4" class="cell5 cell"></span>
+      <span data-cell-index="5" class="cell6 cell"></span>
     </section>
     <!-- Row 3  -->
     <section>
-      <span data-cell-index="6" class="cell"></span>
-      <span data-cell-index="7" class="cell"></span>
-      <span data-cell-index="8" class="cell"></span>
+      <span data-cell-index="6" class="cell7 cell"></span>
+      <span data-cell-index="7" class="cell8 cell"></span>
+      <span data-cell-index="8" class="cell9 cell"></span>
     </section>
+  </div>
+  <!-- playboard section  -->
+  <div class="play-board">
+    <div class="details">
+      <div class="players">
+        <span class="Xturn active">X</span>
+        <span class="Oturn">O</span>
+      </div>
+    </div>
   </div>
   <div class="buttons">
     <span class="prev"><i class="fas fa-chevron-left"></i></span>
