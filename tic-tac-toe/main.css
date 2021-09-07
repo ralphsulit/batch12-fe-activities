@@ -87,48 +87,6 @@ Select Box
 }
 
 /* **************
-Play Board 
-************** */
-.play-board {
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  width: 150px;
-  transform: translate(-50%, -50%);
-}
-
-.play-board .details {
-  background: #fff;
-  padding: 7px;
-  border-radius: 5px;
-}
-
-.play-board .details span {
-  color: #add8e6;
-  width: 100%;
-  text-align: center;
-  border-radius: 5px;
-  padding: 7px 0;
-  font-size: 19px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.details span.active {
-  color: #fff;
-  background: #fe5c5c;
-}
-
-.play-board .details .players {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-
-
-
-
-/* **************
 Game Container 
 ************** */
 .game-container section {
@@ -185,6 +143,13 @@ Play Board
   border-radius: 5px;
 }
 
+.play-board .details .players {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .play-board .details span {
   color: #add8e6;
   width: 100%;
@@ -195,18 +160,37 @@ Play Board
   font-weight: 500;
   font-family: 'Glory', sans-serif;
   cursor: pointer;
+  position: relative;
+  z-index: 5;
+}
+
+.details span:first-child {
+  color: #fff;
 }
 
 .details span.active {
   color: #fff;
-  background: #add8e6;
+  background: #fe5c5c;
 }
 
-.play-board .details .players {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
+.details span.active2 {
+  color: #fff;
+  background: #ffbf00;
 }
+
+.details .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: #fe5c5c;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+
+
 
 /* **************
 Buttons 
