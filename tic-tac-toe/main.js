@@ -142,6 +142,9 @@ function resultValidation(playerMark) {
         let b = cells[winningConditions[j][1]].innerText;
         let c = cells[winningConditions[j][2]].innerText;
         if (a === playerMark && b === playerMark && c === playerMark) {
+          cells[winningConditions[j][0]].style.backgroundColor = '#022d36';
+          cells[winningConditions[j][1]].style.backgroundColor = '#022d36';
+          cells[winningConditions[j][2]].style.backgroundColor = '#022d36';
           hide();
           resultBox.classList.add('show');
           wonText.innerText = `${playerMark} won`;
