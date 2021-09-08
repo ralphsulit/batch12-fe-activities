@@ -1,9 +1,24 @@
 //Variable
+const selectBox = document.querySelector('.select-box');
 let cells = document.querySelectorAll('.cell'); //all cells
-let cell = document.querySelector('.cell');
-let playerX = true // currentPlayer
-let gameActive = true //pause the game 
+let cell = document.querySelector('.cell'); 
+let gameContainer = document.querySelector('.game-container');
+let resultBox = document.querySelector('.result-box');
+let playBoard = document.querySelector('.play-board');
+let playerX = true; // currentPlayer
+let gameActive = true; //pause the game
 let drawCounter = 0; //draw the game
+let selectXBtn = selectBox.querySelector('.playerX');
+let selectOBtn = selectBox.querySelector('.playerO');
+
+//when window is loaded 
+window.onload = () => { 
+  selectXBtn.onclick = () => {
+    selectBox.classList.add('hide'); //hide the select box on playerX button clicked
+    gameContainer.classList.add('show'); //show game container
+    playBoard.classList.add('show'); //show playboard
+  }
+}
 
 //loop to all the cells and add click event
 function game() {
