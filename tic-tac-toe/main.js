@@ -141,7 +141,6 @@ function resultValidation(playerMark) {
         let a = cells[winningConditions[j][0]].innerText;
         let b = cells[winningConditions[j][1]].innerText;
         let c = cells[winningConditions[j][2]].innerText;
-
         if (a === playerMark && b === playerMark && c === playerMark) {
           hide();
           resultBox.classList.add('show');
@@ -164,6 +163,28 @@ function resultValidation(playerMark) {
   drawCounter = 0;
 };
 
+//get the state of the game and create a new span
+function newSpan() {
+  for (let i = 0; i < gameState[movePosition].length; i++) {
+    let section = document.createElement('section');
+    for (let j = 0; j < gameState[movePosition][i].length; j++) {
+      let span = document.createElement('span');
+      span.classList.add('cell');
+      span.innerText = gameState[movePosition][i][j];
+      if (gameState[movePosition][i][j] === 'x') {
+        span.style.backgroundColor = '#fe5c5c'; //change the background color to red
+        span.style.pointerEvents = 'none';
+      } else if ( gameState[movePosition][i][j] === 'o' ) {
+        span.style.backgroundColor = '#ffbf00'; //change the background color to red
+      } else {
+        span.style.backgroundColor = '#add8e6';
+      }
+      section.appendChild(span);
+    }
+    gameContainer.append(section);
+  };
+};
+
 //preview button: undo last move 
 function previouseMove() {
   if (movePosition <= 0) {
@@ -171,54 +192,17 @@ function previouseMove() {
   }
   gameContainer.innerHTML = '';
   movePosition -= 1;
-  console.log(gameState, movePosition);
-  for (let i = 0; i < gameState[movePosition].length; i++) {
-    let section = document.createElement('section');
-    for (let j = 0; j < gameState[movePosition][i].length; j++) {
-      let span = document.createElement('span');
-      span.classList.add('cell');
-      span.innerText = gameState[movePosition][i][j];
-      if (gameState[movePosition][i][j] === 'x') {
-        span.style.backgroundColor = '#fe5c5c'; //change the background color to red
-        span.style.pointerEvents = 'none';
-      } else if ( gameState[movePosition][i][j] === 'o' ) {
-        span.style.backgroundColor = '#ffbf00'; //change the background color to red
-      } else {
-        span.style.backgroundColor = '#add8e6';
-      }
-      section.appendChild(span);
-    }
-    gameContainer.append(section);
-  }
+  newSpan();
 };
 
 //next button: view next move
 function nextMove() {
-  console.log('1', gameState.length);
   if (movePosition === gameState.length - 1) {
     return;
   }
   gameContainer.innerHTML = '';
   movePosition += 1;
-  console.log(movePosition);
-  for (let i = 0; i < gameState[movePosition].length; i++) {
-    let section = document.createElement('section');
-    for (let j = 0; j < gameState[movePosition][i].length; j++) {
-      let span = document.createElement('span');
-      span.classList.add('cell');
-      span.innerText = gameState[movePosition][i][j];
-      if (gameState[movePosition][i][j] === 'x') {
-        span.style.backgroundColor = '#fe5c5c'; //change the background color to red
-        span.style.pointerEvents = 'none';
-      } else if ( gameState[movePosition][i][j] === 'o' ) {
-        span.style.backgroundColor = '#ffbf00'; //change the background color to red
-      } else {
-        span.style.backgroundColor = '#add8e6';
-      }
-      section.appendChild(span);
-    }
-    gameContainer.append(section);
-  }
+  newSpan();
 }
 
 prevBtn.addEventListener('click', previouseMove);
