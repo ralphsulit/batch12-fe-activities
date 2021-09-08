@@ -154,6 +154,11 @@ Cell
   background: #333;
 }
 
+.no-click {
+  pointer-events: none;
+  cursor: default;
+}
+
 /* **************
 Play Board 
 ************** */

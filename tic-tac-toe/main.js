@@ -1,20 +1,32 @@
-//Variable
-const selectBox = document.querySelector('.select-box');
+////////////////
+////////Variables
+////////////////
+//Game Container Variables
 let cells = document.querySelectorAll('.cell'); 
 let cell = document.querySelector('.cell'); 
 let players = document.querySelector('.players'); 
 let gameContainer = document.querySelector('.game-container'); 
-let gameTitle = document.querySelector('.game-title'); 
+let gameTitle = document.querySelector('.game-title');
+//Result Box and Playboard Variables
+let playBoard = document.querySelector('.play-board');
 let resultBox = document.querySelector('.result-box');
-let closeBtn = document.querySelector('.btn-close');
 let buttons = document.querySelector('.buttons');
 let wonText = document.querySelector('.won-text'); 
-let playBoard = document.querySelector('.play-board');
+let closeBtn = document.querySelector('.btn-close');
+//Select box Variables
+const selectBox = document.querySelector('.select-box');
 let selectXBtn = selectBox.querySelector('.playerX');
 let selectOBtn = selectBox.querySelector('.playerO');
+//Prev, Reload, Next buttons
+let prevBtn = document.querySelector('.prev');
+let reloadBtn = document.querySelector('.reload');
+let nextBtn = document.querySelector('.next');
+//Javascript Variables
 let playerX = true; // currentPlayer (X)
 let gameActive = true; //pause the game
 let drawCounter = 0; //draw the game
+let movePosition = 0;
+let movements = [];
 
 //show game container 
 let show = () => {
@@ -63,14 +75,16 @@ function game() {
 function cellClick() {
   let mark = '';
   if (playerX === true) {
-    this.innerText = `x`; //Add X when player is true
     mark = 'x';
+    this.innerText = `x`; //Add X when player is true
     this.style.backgroundColor = '#fe5c5c'; //change the background color to red
+    this.style.pointerEvents = 'none';
     players.classList.add('active');
   } else {
-    this.innerText = `o`; //Add O when player is false
     mark = 'o';
+    this.innerText = `o`; //Add O when player is false
     this.style.backgroundColor = '#ffbf00'; //change the background color to red
+    this.style.pointerEvents = 'none';
     players.classList.remove('active');
   }
   playerX = !playerX;
@@ -100,8 +114,9 @@ function saveMove() {
     row1,
     row2,
     row3
-  ]);   
-  console.log(gameState);
+  ]);
+  movePosition = gameState.length;
+  console.log({gameState, movePosition});
 };
 
 //winning conditions
@@ -131,6 +146,7 @@ function resultValidation(playerMark) {
           hide();
           resultBox.classList.add('show');
           wonText.innerText = `${playerMark} won`;
+          gameContainer.style.pointerEvents = 'none';
         } 
       }
     } 
@@ -141,9 +157,71 @@ function resultValidation(playerMark) {
     } 
   }
   if (drawCounter === 9) {
+    hide();
     resultBox.classList.add('show');
     wonText.innerText = `Draw`;
   }
   drawCounter = 0;
 };
+
+//preview button: undo last move 
+function previouseMove() {
+  if (movePosition <= 0) {
+    return;
+  }
+  gameContainer.innerHTML = '';
+  movePosition -= 1;
+  console.log(gameState, movePosition);
+  for (let i = 0; i < gameState[movePosition].length; i++) {
+    let section = document.createElement('section');
+    for (let j = 0; j < gameState[movePosition][i].length; j++) {
+      let span = document.createElement('span');
+      span.classList.add('cell');
+      span.innerText = gameState[movePosition][i][j];
+      if (gameState[movePosition][i][j] === 'x') {
+        span.style.backgroundColor = '#fe5c5c'; //change the background color to red
+        span.style.pointerEvents = 'none';
+      } else if ( gameState[movePosition][i][j] === 'o' ) {
+        span.style.backgroundColor = '#ffbf00'; //change the background color to red
+      } else {
+        span.style.backgroundColor = '#add8e6';
+      }
+      section.appendChild(span);
+    }
+    gameContainer.append(section);
+  }
+};
+
+//next button: view next move
+function nextMove() {
+  console.log('1', gameState.length);
+  if (movePosition === gameState.length - 1) {
+    return;
+  }
+  gameContainer.innerHTML = '';
+  movePosition += 1;
+  console.log(movePosition);
+  for (let i = 0; i < gameState[movePosition].length; i++) {
+    let section = document.createElement('section');
+    for (let j = 0; j < gameState[movePosition][i].length; j++) {
+      let span = document.createElement('span');
+      span.classList.add('cell');
+      span.innerText = gameState[movePosition][i][j];
+      if (gameState[movePosition][i][j] === 'x') {
+        span.style.backgroundColor = '#fe5c5c'; //change the background color to red
+        span.style.pointerEvents = 'none';
+      } else if ( gameState[movePosition][i][j] === 'o' ) {
+        span.style.backgroundColor = '#ffbf00'; //change the background color to red
+      } else {
+        span.style.backgroundColor = '#add8e6';
+      }
+      section.appendChild(span);
+    }
+    gameContainer.append(section);
+  }
+}
+
+prevBtn.addEventListener('click', previouseMove);
+nextBtn.addEventListener('click', nextMove);
+
 game();
