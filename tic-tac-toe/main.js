@@ -7,6 +7,7 @@ let players = document.querySelector('.players');
 let gameContainer = document.querySelector('.game-container');
 let gameTitle = document.querySelector('.game-title');
 let resultBox = document.querySelector('.result-box');
+let wonText = document.querySelector('.won-text');
 let playBoard = document.querySelector('.play-board');
 let playerX = true; // currentPlayer
 let gameActive = true; //pause the game
@@ -25,8 +26,8 @@ let show = () => {
 let hide = () => {
   gameContainer.classList.remove('show'); //show game container
   playBoard.classList.remove('show'); //show playboard
-  gameTitle.classLisremovet.remove('show'); //show game title
-}
+  gameTitle.classList.remove('show'); //show game title
+};
 
 //when window is loaded 
 window.onload = () => {
@@ -116,8 +117,9 @@ function resultValidation(playerMark) {
         let c = cells[winningConditions[j][2]].innerText;
 
         if (a === playerMark && b === playerMark && c === playerMark) {
-          return `${playerMark} is the winner`;
-          break;
+          hide();
+          resultBox.classList.add('show');
+          wonText.innerText = `${playerMark} won`;
         } 
       }
     } 

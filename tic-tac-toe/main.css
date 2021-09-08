@@ -264,6 +264,8 @@ Result Box
   font-size: 3rem;
   font-weight: 500;
   display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .result-box .btn-close {
@@ -285,11 +287,6 @@ Result Box
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: 5px;
-}
-
-.no-click {
-  pointer-events: none;
-  cursor: none;
 }
 
 /* **************
