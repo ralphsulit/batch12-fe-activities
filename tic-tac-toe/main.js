@@ -3,6 +3,7 @@ const selectBox = document.querySelector('.select-box');
 let cells = document.querySelectorAll('.cell'); //all cells
 let cell = document.querySelector('.cell'); 
 let gameContainer = document.querySelector('.game-container');
+let gameTitle = document.querySelector('.game-title');
 let resultBox = document.querySelector('.result-box');
 let playBoard = document.querySelector('.play-board');
 let playerX = true; // currentPlayer
@@ -11,14 +12,27 @@ let drawCounter = 0; //draw the game
 let selectXBtn = selectBox.querySelector('.playerX');
 let selectOBtn = selectBox.querySelector('.playerO');
 
+//show function 
+let show = () => {
+  selectBox.classList.add('hide'); //hide the select box on playerX button clicked
+  gameContainer.classList.add('show'); //show game container
+  playBoard.classList.add('show'); //show playboard
+  gameTitle.classList.add('show'); //show game title
+};
+
 //when window is loaded 
-window.onload = () => { 
+window.onload = () => {
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].setAttribute('onclick', 'clickedBox(this)');
+  };
+
   selectXBtn.onclick = () => {
-    selectBox.classList.add('hide'); //hide the select box on playerX button clicked
-    gameContainer.classList.add('show'); //show game container
-    playBoard.classList.add('show'); //show playboard
-  }
-}
+    show();
+  };
+  selectOBtn.onclick = () => {
+    show();
+  };
+};
 
 //loop to all the cells and add click event
 function game() {

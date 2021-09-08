@@ -94,6 +94,17 @@ Select Box
 }
 
 /* **************
+Game Title
+************** */
+.game-title {
+  opacity: 0;
+}
+
+.game-title.show {
+  opacity: 1;
+}
+
+/* **************
 Game Container 
 ************** */
 .game-container {
@@ -232,6 +243,7 @@ Result Box
   text-align: center;
   overflow: hidden;
   opacity: 0;
+  pointer-events: none;
 }
 
 .result-box .won-text {
