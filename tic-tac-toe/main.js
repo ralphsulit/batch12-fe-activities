@@ -129,7 +129,9 @@ const winningConditions = [
   [2, 5, 8], 
   [0, 4, 8], 
   [6, 4, 2] 
-];  
+];
+
+let winIndex;
 
 // Check if the current player won the game
 function resultValidation(playerMark) {
@@ -145,10 +147,13 @@ function resultValidation(playerMark) {
           cells[winningConditions[j][0]].style.backgroundColor = '#022d36';
           cells[winningConditions[j][1]].style.backgroundColor = '#022d36';
           cells[winningConditions[j][2]].style.backgroundColor = '#022d36';
+          winIndex = j;
+          console.log(winIndex);
           hide();
           resultBox.classList.add('show');
           wonText.innerText = `${playerMark} won`;
           gameContainer.style.pointerEvents = 'none';
+          return;
         } 
       }
     } 
@@ -188,9 +193,14 @@ function newSpan() {
   };
 };
 
+
+
+
 //preview button: undo last move 
-function previouseMove() {
+function previouseMove(e) {
+  nextBtn.style.color = 'black';
   if (movePosition <= 0) {
+    e.target.style.opacity = '0.5';
     return;
   }
   gameContainer.innerHTML = '';
@@ -199,14 +209,22 @@ function previouseMove() {
 };
 
 //next button: view next move
-function nextMove() {
+function nextMove(e) {
+  prevBtn.style.color = 'black';
   if (movePosition === gameState.length - 1) {
+    e.target.style.color = 'gray';
     return;
   }
   gameContainer.innerHTML = '';
   movePosition += 1;
   newSpan();
-}
+  let newCells = document.querySelectorAll('.cell');
+  if (winIndex != undefined) {
+    winningConditions[winIndex].forEach(value => {
+      newCells[value].style.backgroundColor = '#022d36';
+    })
+  }
+};
 
 prevBtn.addEventListener('click', previouseMove);
 nextBtn.addEventListener('click', nextMove);

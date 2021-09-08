@@ -159,6 +159,10 @@ Cell
   cursor: default;
 }
 
+.highlight {
+  background-color: #022d36;
+}
+
 /* **************
 Play Board 
 ************** */
