@@ -141,7 +141,8 @@ function resultValidation(playerMark) {
     } 
   }
   if (drawCounter === 9) {
-    console.log('draw');
+    resultBox.classList.add('show');
+    wonText.innerText = `Draw`;
   }
   drawCounter = 0;
 };
