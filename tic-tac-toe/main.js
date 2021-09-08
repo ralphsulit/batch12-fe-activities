@@ -1,33 +1,44 @@
 //Variable
 const selectBox = document.querySelector('.select-box');
-let cells = document.querySelectorAll('.cell'); //all cells
-let cell = document.querySelector('.cell');
-let allBox = document.querySelectorAll('section span');
-let players = document.querySelector('.players');
-let gameContainer = document.querySelector('.game-container');
-let gameTitle = document.querySelector('.game-title');
+let cells = document.querySelectorAll('.cell'); 
+let cell = document.querySelector('.cell'); 
+let players = document.querySelector('.players'); 
+let gameContainer = document.querySelector('.game-container'); 
+let gameTitle = document.querySelector('.game-title'); 
 let resultBox = document.querySelector('.result-box');
-let wonText = document.querySelector('.won-text');
+let closeBtn = document.querySelector('.btn-close');
+let buttons = document.querySelector('.buttons');
+let wonText = document.querySelector('.won-text'); 
 let playBoard = document.querySelector('.play-board');
-let playerX = true; // currentPlayer
-let gameActive = true; //pause the game
-let drawCounter = 0; //draw the game
 let selectXBtn = selectBox.querySelector('.playerX');
 let selectOBtn = selectBox.querySelector('.playerO');
+let playerX = true; // currentPlayer (X)
+let gameActive = true; //pause the game
+let drawCounter = 0; //draw the game
 
 //show game container 
 let show = () => {
   selectBox.classList.add('hide'); //hide the select box on playerX button clicked
   gameContainer.classList.add('show'); //show game container
-  playBoard.classList.add('show'); //show playboard
   gameTitle.classList.add('show'); //show game title
+  playBoard.classList.add('show'); //show playboard
 };
 
+//hide game container
 let hide = () => {
   gameContainer.classList.remove('show'); //show game container
-  playBoard.classList.remove('show'); //show playboard
   gameTitle.classList.remove('show'); //show game title
+  playBoard.classList.remove('show'); //show playboard
 };
+
+//close result box
+//show game container 
+closeBtn.addEventListener('click', () => {
+  resultBox.classList.remove('show');
+  gameContainer.classList.add('show'); //show game container
+  gameTitle.classList.add('show'); //show game title
+  buttons.classList.add('show'); //show buttons (prev, reload, next);
+});
 
 //when window is loaded 
 window.onload = () => {
