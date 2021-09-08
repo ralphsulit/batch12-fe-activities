@@ -1,7 +1,9 @@
 //Variable
 const selectBox = document.querySelector('.select-box');
 let cells = document.querySelectorAll('.cell'); //all cells
-let cell = document.querySelector('.cell'); 
+let cell = document.querySelector('.cell');
+let allBox = document.querySelectorAll('section span');
+let players = document.querySelector('.players');
 let gameContainer = document.querySelector('.game-container');
 let gameTitle = document.querySelector('.game-title');
 let resultBox = document.querySelector('.result-box');
@@ -22,15 +24,13 @@ let show = () => {
 
 //when window is loaded 
 window.onload = () => {
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].setAttribute('onclick', 'clickedBox(this)');
-  };
-
   selectXBtn.onclick = () => {
     show();
   };
   selectOBtn.onclick = () => {
     show();
+    players.setAttribute('class', 'players active player'); //adding active and player class name 
+    playerX = !playerX;
   };
 };
 
@@ -48,14 +48,13 @@ function cellClick() {
     this.innerText = `x`; //Add X when player is true
     mark = 'x';
     this.style.backgroundColor = '#fe5c5c'; //change the background color to red
-    this.style.pointerEvents = 'none'; //unactive click
+    players.classList.add('active');
   } else {
     this.innerText = `o`; //Add O when player is false
     mark = 'o';
     this.style.backgroundColor = '#ffbf00'; //change the background color to red
-    this.style.pointerEvents = 'none'; //unactive click
+    players.classList.remove('active');
   }
-  // this.innerText = mark;
   playerX = !playerX;
   saveMove();
   resultValidation(mark);
@@ -111,9 +110,7 @@ function resultValidation(playerMark) {
         let c = cells[winningConditions[j][2]].innerText;
 
         if (a === playerMark && b === playerMark && c === playerMark) {
-          console.log('winner');
-          return `${playerMark} is the winner`;
-          break;
+          
         } 
       }
     } 

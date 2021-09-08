@@ -186,6 +186,19 @@ Play Board
   justify-content: space-around;
 }
 
+.players.active span:first-child {
+  color: #add8e6;
+}
+
+.players.active span:nth-child(2) {
+  color: #fff;
+  background: #ffbf00;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
 .play-board .details span {
   color: #add8e6;
   width: 100%;
@@ -195,9 +208,9 @@ Play Board
   font-size: 19px;
   font-weight: 500;
   font-family: 'Glory', sans-serif;
-  cursor: pointer;
   position: relative;
   z-index: 5;
+  transition: all 0.3s ease;
 }
 
 .details span:first-child {
@@ -209,11 +222,6 @@ Play Board
   background: #fe5c5c;
 }
 
-.details span.active2 {
-  color: #fff;
-  background: #ffbf00;
-}
-
 .details .slider {
   position: absolute;
   top: 0;
@@ -223,6 +231,7 @@ Play Board
   background: #fe5c5c;
   border-radius: 5px;
   z-index: 2;
+  transition: all 0.1s ease;
 }
 
 /* **************
