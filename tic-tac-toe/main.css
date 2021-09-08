@@ -255,6 +255,11 @@ Result Box
   pointer-events: none;
 }
 
+.result-box.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .result-box .won-text {
   font-size: 3rem;
   font-weight: 500;

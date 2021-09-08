@@ -14,13 +14,19 @@ let drawCounter = 0; //draw the game
 let selectXBtn = selectBox.querySelector('.playerX');
 let selectOBtn = selectBox.querySelector('.playerO');
 
-//show function 
+//show game container 
 let show = () => {
   selectBox.classList.add('hide'); //hide the select box on playerX button clicked
   gameContainer.classList.add('show'); //show game container
   playBoard.classList.add('show'); //show playboard
   gameTitle.classList.add('show'); //show game title
 };
+
+let hide = () => {
+  gameContainer.classList.remove('show'); //show game container
+  playBoard.classList.remove('show'); //show playboard
+  gameTitle.classLisremovet.remove('show'); //show game title
+}
 
 //when window is loaded 
 window.onload = () => {
@@ -110,7 +116,8 @@ function resultValidation(playerMark) {
         let c = cells[winningConditions[j][2]].innerText;
 
         if (a === playerMark && b === playerMark && c === playerMark) {
-          
+          return `${playerMark} is the winner`;
+          break;
         } 
       }
     } 
